@@ -116,6 +116,20 @@ Migration Checklist lists planned changes separately from shipped ones.
 
 ## Local setup
 
+Same steps as Makefile targets (the venv is created on first use):
+
+```
+make setup          # create .venv and install requirements.txt
+make extract        # PDF -> data/extracted/3.5.json (make extract VERSION=3.6 to change)
+make fetch-matrix   # live Supported Configurations matrix -> data/matrix_snapshots/
+make validate       # schema + sanity gate on the registry
+make build          # render the static site into docs/
+make serve          # preview docs/ at http://localhost:8765
+make all            # extract -> fetch-matrix -> validate -> build
+```
+
+Or by hand:
+
 ```
 python3 -m venv .venv
 source .venv/bin/activate
